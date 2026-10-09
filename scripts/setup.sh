@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # Set up FRIDAY's PC server from this repo plus a checkout of the Android app repo.
-# Usage: scripts/setup.sh /path/to/local-android-assistant
+# Usage: scripts/setup.sh /path/to/FRIDAY-Android
 # Installs to ~/assistant-server (override with SERVER_DIR). Safe to re-run.
 set -euo pipefail
-APP_REPO="${1:?path to a local-android-assistant checkout}"
+APP_REPO="${1:?path to a FRIDAY-Android checkout}"
 HERE="$(cd "$(dirname "$0")/.." && pwd)"
 DEST="${SERVER_DIR:-$HOME/assistant-server}"
 mkdir -p "$DEST/api" "$DEST/searxng/config" "$DEST/maintenance" "$DEST/llama" "$DEST/slot-cache" "$HOME/.config/systemd/user"

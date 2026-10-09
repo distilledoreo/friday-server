@@ -1,6 +1,6 @@
 # FRIDAY server
 
-The PC side of FRIDAY, the local Android assistant ([local-android-assistant](https://github.com/distilledoreo/local-android-assistant)).
+The PC side of FRIDAY, the local Android assistant ([FRIDAY-Android](https://github.com/distilledoreo/FRIDAY-Android)).
 It runs the model, search, voice and the authenticated API the phone talks to. Everything listens on
 `127.0.0.1` only; the phone reaches the API through Tailscale Serve (tailnet-only HTTPS → `127.0.0.1:8700`).
 
@@ -28,8 +28,8 @@ slot 1, and restores a saved snapshot of the system prompt and tools for each ne
 
 ```bash
 git clone <this repo> friday-server
-git clone https://github.com/distilledoreo/local-android-assistant
-friday-server/scripts/setup.sh local-android-assistant
+git clone https://github.com/distilledoreo/FRIDAY-Android
+friday-server/scripts/setup.sh FRIDAY-Android
 ```
 
 Then fill in, on the PC only (never committed):
