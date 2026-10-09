@@ -1,0 +1,23 @@
+# Local assistant backends. Ports bind to loopback only; put an authenticated
+# API layer in front before exposing anything to the phone.
+services:
+  searxng:
+    image: searxng/searxng:latest
+    container_name: searxng
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8888:8080"
+    volumes:
+      - ./searxng/config:/etc/searxng
+
+  # Large image (several GB). Enable with: docker compose --profile crawl up -d
+  crawl4ai:
+    image: unclecode/crawl4ai:latest
+    container_name: crawl4ai
+    profiles: ["crawl"]
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:11235:11235"
+    shm_size: 1g
+    environment:
+      - CRAWL4AI_API_TOKEN=${CRAWL4AI_API_TOKEN}

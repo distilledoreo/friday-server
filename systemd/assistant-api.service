@@ -1,0 +1,15 @@
+[Unit]
+Description=Desktop Assistant API (/chat, /search, /fetch) on 127.0.0.1:8700
+After=default.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+WorkingDirectory=%h/assistant-server/api
+EnvironmentFile=%h/assistant-server/.env
+ExecStart=%h/assistant-server/api/.venv/bin/uvicorn app:app --host 127.0.0.1 --port 8700 --no-server-header --no-access-log
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target

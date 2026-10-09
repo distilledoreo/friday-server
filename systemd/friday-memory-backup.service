@@ -1,0 +1,11 @@
+[Unit]
+Description=FRIDAY consistent memory backup
+# Edit the destination to a drive of your choice.
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/python3 %h/assistant-server/maintenance/memory-backup.py --source %h/assistant-server/workspace-data/memory/memory.sqlite --destination %h/friday-backups/memory --keep 7 --max-bytes 2147483648 --min-free 2147483648
+Nice=15
+IOSchedulingClass=idle
+UMask=0077
+NoNewPrivileges=true

@@ -1,0 +1,10 @@
+use_default_settings: true
+
+server:
+  secret_key: "CHANGE_ME"  # scripts/setup.sh replaces this with a random key
+  limiter: false
+
+search:
+  formats:
+    - html
+    - json
